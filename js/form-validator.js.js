@@ -1,6 +1,11 @@
 (function () {
-    const formEl = document.querySelector('.validate')
+    const formEl = document.querySelector('[validator="true"]')
+    if (!formEl) {
+        console.log("Please specify validator prop on form element to validate form");
+        return
+    }
     const inputArr = formEl.querySelectorAll("input")
+
     const validations = {
         emailPattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     }
@@ -55,8 +60,9 @@
     }
 
     const handleSubmit = (event) => {
-        let validStates = []
         event.preventDefault()
+
+        let validStates = []
         for (const input of inputArr) {
             let isValid = validateInput(input)
             validStates.push(isValid)
@@ -64,6 +70,8 @@
         if (!validStates.filter(el => !el).length) {
             formEl.submit()
         }
+        //event.stopImmediatePropagation()
+        // return false
     }
     const bindForm = () => {
         formEl.addEventListener("submit", handleSubmit)
@@ -72,5 +80,6 @@
             input.addEventListener("blur", handleBlur)
         }
     }
+
     bindForm()
 })()
