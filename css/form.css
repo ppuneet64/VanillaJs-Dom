@@ -1,0 +1,28 @@
+.user-form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex-basis: 50%;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-input {
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+}
+.submit-btn {
+  margin-top: 8px;
+  border: none;
+  background-color: #638332;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
