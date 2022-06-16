@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fake Scroll</title>
+        <style>
+            #realcontent {
+                background-color: #333;
+                position: fixed;
+                top: 5px;
+                left: 0;
+                width: 2000px;
+                color: #fff;
+                height: 100px;
+            }
+
+            #fakecontent {
+                height: 2000px;
+            }
+            .h-div {
+                width: 50%;
+                height: 400px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="realcontent">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam a
+            est maiores fugiat nesciunt, at ad. Tempore odio velit ipsam,
+            laborum explicabo repudiandae aliquid nostrum qui dolorem obcaecati,
+            autem expedita!
+        </div>
+        <div id="fakecontent"></div>
+        <div class="h-div"></div>
+        <div class="h-div"></div>
+        <div class="h-div"></div>
+        <div class="h-div"></div>
+        <div class="h-div"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <script>
+            $(window).on('scroll', function () {
+                $('#realcontent').css('left', -$(window).scrollTop());
+            });
+        </script>
+    </body>
+</html>
